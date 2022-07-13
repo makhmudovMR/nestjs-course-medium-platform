@@ -4,6 +4,8 @@ import { AppService } from '@app/app.service';
 import { TagModule } from '@app/tag/tag.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TagEntity } from '@app/tag/tag.entity';
+import { UserModule } from '@app/user/user.module';
+import { UserEntity } from '@app/user/user.entity';
 
 @Module({
   imports: [
@@ -14,10 +16,11 @@ import { TagEntity } from '@app/tag/tag.entity';
       username: 'mediumclone',
       password: '123',
       database: 'mediumclone',
-      entities: [TagEntity],
+      entities: [TagEntity, UserEntity],
       synchronize: true,
     }),
     TagModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
