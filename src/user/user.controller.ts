@@ -11,7 +11,7 @@ export class UserController {
   async createUser(
     @Body('user') createUserDto: ICreateUserDto,
   ): Promise<UserEntity> {
-    console.log('createUser', createUserDto);
-    return this.userService.createUser(createUserDto);
+    const user = await this.userService.createUser(createUserDto);
+    return this.userService.buildUserResponse(user);
   }
 }
